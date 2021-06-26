@@ -5,8 +5,9 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
-	"github.com/vijayakumar-psg587/golang-tut/controllers"
-	"github.com/vijayakumar-psg587/golang-tut/models"
+	sampleTut "github.com/vijayakumar-psg587/golang-tut/src/sample-tut"
+	"github.com/vijayakumar-psg587/golang-tut/src/webservice-tut/controllers"
+	"github.com/vijayakumar-psg587/golang-tut/src/webservice-tut/models"
 )
 
 func main() {
@@ -15,23 +16,20 @@ func main() {
 	val = "Another val"
 	fmt.Printf("Priting pointer and its value, %v, %v\n", firstPointer, *firstPointer)
 
-	// arraysUser
-	// var arr [5]string
-	arr := [5]string{}
-	arr[1] = "rray 1 string"
-	arr[0] = "rray 0 string"
-	arr[4] = "This is the 4th value"
-	slc := arr[2:5]
-	fmt.Printf("Array and Slice is %v, %v \n", arr, slc)
+	//sampleTut.SampleImp()
 
-	// slice is not a fixed size entity
-	slice := []int{}
-	slice = append(slice, 33)
-	fmt.Printf("Slice which is not a fixed size entity:%v \n", len(slice))
+	// Shows sample conversion of int to string with reflect
+	sampleTut.SampleConv()
 
-	// Maps
-	maps := map[string]string{"key1": "lue1", "key2": "value2"}
-	fmt.Printf("Map test, %v \n", maps["key1"])
+	valString := *sampleTut.DateConverter(120345, 20210912)
+	fmt.Println(valString)
+
+	sampleTut.GetCurrentTimeString()
+	//WebServiceSampleCreator()
+
+}
+
+func WebServiceSampleCreator() {
 
 	// getting uuid
 	//uId := uuid.New()

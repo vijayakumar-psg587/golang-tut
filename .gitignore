@@ -1,2 +1,4 @@
 .git
 go.sum
+*.sh
+golang-tut
