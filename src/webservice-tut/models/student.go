@@ -5,5 +5,6 @@ import (
 )
 
 type Student struct {
-	studentId uuid.UUID
+	studentId   uuid.UUID
+	studentAddr Address
 }

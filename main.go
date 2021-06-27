@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
-	sampleTut "github.com/vijayakumar-psg587/golang-tut/src/sample-tut"
 	"github.com/vijayakumar-psg587/golang-tut/src/webservice-tut/controllers"
 	"github.com/vijayakumar-psg587/golang-tut/src/webservice-tut/models"
 )
@@ -19,12 +18,25 @@ func main() {
 	//sampleTut.SampleImp()
 
 	// Shows sample conversion of int to string with reflect
-	sampleTut.SampleConv()
+	// sampleTut.SampleConv()
 
-	valString := *sampleTut.DateConverter(120345, 20210912)
-	fmt.Println(valString)
+	// valString := *sampleTut.DateConverter(120345, 20210912)
+	// fmt.Println(valString)
 
-	sampleTut.GetCurrentTimeString()
+	userMap := map[uuid.UUID]models.User{}
+
+	userMap[uuid.New()] = models.User{ID: 1, FirstName: "VV"}
+	userMap[uuid.New()] = models.User{ID: 2, FirstName: "KK"}
+
+	// I do not want to deal with error now hence using _ there
+	usersCreated, _ := models.CreateUsers(userMap)
+	for idC, userC := range usersCreated {
+		fmt.Println(idC, userC)
+	}
+	// sampleTut.GetCurrentTimeString()
+
+	models.GetUserById(2)
+
 	//WebServiceSampleCreator()
 
 }
